@@ -5,4 +5,19 @@
   $venue.getName()
 #end
 
-<h2>Select</h2>
+<h2>Select the venues where this band have played</h2>
+
+<form action="/band/$band.getId()/venues" method="post">
+
+  <div class="checkbox">
+    #foreach($venue in $venues)
+    <label>
+      <input name= "checkbox" type="checkbox" value="$venue.getId()">
+      $venue.getName()
+    </label>
+    #end
+  </div>
+
+  <button id="addVenue" type="submit" name="addVenue" class="btn btn-danger">Add venue</button>
+
+</form>

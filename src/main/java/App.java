@@ -33,6 +33,7 @@ public class App {
       Map <String, Object> model = new HashMap<String, Object>();
       int band_id = Integer.parseInt(request.params(":band_id"));
       model.put("band", Band.find(band_id));
+      model.put("venues", Venue.all());
       model.put("bandVenues", Band.find(band_id).getVenues());
       model.put("template", "templates/band.vtl");
       return new ModelAndView(model, layout);
@@ -44,6 +45,19 @@ public class App {
       Venue newVenue = new Venue(venueName, maxBandSize);
       newVenue.save();
       response.redirect("/");
+      return null;
+    });
+
+    post("/band/:band_id/venues", (request, response) ->  {
+      String[] venues_id = request.queryParamsValues("checkbox");
+      int band_id = Integer.parseInt(request.params(":band_id"));
+      Band newBand = Band.find(band_id);
+      for (String venue_id : venues_id) {
+        Venue newVenue = Venue.find(Integer.parseInt(venue_id));
+        newBand.addVenue(newVenue);
+      }
+      String url = String.format("/band/%d", band_id);
+      response.redirect(url);
       return null;
     });
 
