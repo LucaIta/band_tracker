@@ -27,4 +27,19 @@ public class BandTest {
     assertEquals(0, testBand.getId());
   }
 
+  @Test
+  public void Band_savesCorrectly() {
+    Band testBand = new Band("The Music Band");
+    testBand.save();
+    assertTrue(testBand.equals(Band.all().get(0)));
+  }
+
+
+
+
+
+
 }
+
+
+// i need to override

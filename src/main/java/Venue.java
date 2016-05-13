@@ -1,3 +1,6 @@
+import java.util.List;
+import org.sql2o.*;
+
 public class Venue {
   private String name;
   private int id;

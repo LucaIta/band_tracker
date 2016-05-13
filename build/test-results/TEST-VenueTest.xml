@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="VenueTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-05-13T04:09:52" hostname="oems-MacBook-Pro.local" time="0.046">
+<testsuite name="VenueTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-05-13T15:51:34" hostname="epicodus-92.local" time="0.015">
   <properties/>
-  <testcase name="and_returnVenueName" classname="VenueTest" time="0.014"/>
-  <testcase name="Venue_returnVenueId" classname="VenueTest" time="0.018"/>
-  <testcase name="Venue_InstantiateCorrectly" classname="VenueTest" time="0.013"/>
+  <testcase name="and_returnVenueName" classname="VenueTest" time="0.005"/>
+  <testcase name="Venue_returnVenueId" classname="VenueTest" time="0.005"/>
+  <testcase name="Venue_InstantiateCorrectly" classname="VenueTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
