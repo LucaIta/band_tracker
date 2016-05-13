@@ -1,9 +1,13 @@
 <h1>$band.getName()</h1>
 <h2>Number of members: $band.getBandSize()</h2>
 
+<h2>Venues in which the band has played</h2>
+
+<ul>
 #foreach($venue in $bandVenues)
-  $venue.getName()
+  <li>$venue.getName()</li>
 #end
+</ul>
 
 <h2>Select the venues where this band have played</h2>
 
@@ -20,4 +24,8 @@
 
   <button id="addVenue" type="submit" name="addVenue" class="btn btn-danger">Add venue</button>
 
+</form>
+
+<form action="/band/$band.getId()/delete" method="post">
+  <button id="deleteBand" type="submit" name="deleteBand" class="btn btn-danger">Delete band</button>
 </form>

@@ -4,6 +4,7 @@ import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class App {
 
@@ -53,11 +54,18 @@ public class App {
       int band_id = Integer.parseInt(request.params(":band_id"));
       Band newBand = Band.find(band_id);
       for (String venue_id : venues_id) {
-        Venue newVenue = Venue.find(Integer.parseInt(venue_id));
-        newBand.addVenue(newVenue);
-      }
+          Venue newVenue = Venue.find(Integer.parseInt(venue_id));
+          newBand.addVenue(newVenue);
+        }
       String url = String.format("/band/%d", band_id);
       response.redirect(url);
+      return null;
+    });
+
+    post("/band/:band_id/delete", (request, response) ->  {
+      Band newBand = Band.find(Integer.parseInt(request.params(":band_id")));
+      newBand.delete();
+      response.redirect("/");
       return null;
     });
 

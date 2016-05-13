@@ -68,17 +68,26 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("The Music Place");
   }
 
+  // @Test
+  // public void formToAssociateVenuesWorks() {
+  //   Band newBand = new Band("The Music Band", 4);
+  //   newBand.save();
+  //   Venue newVenue = new Venue("The Music Place", 4);
+  //   newVenue.save();
+  //   String url = String.format("http://localhost:4567/band/%d", newBand.getId());
+  //   goTo(url);
+  //   click("checkbox", withText("The Music Place"));
+  //   submit("#addVenue");
+  // }
+
   @Test
-  public void formToAssociateVenuesWorks() {
+  public void bandsGetCancelled() {
     Band newBand = new Band("The Music Band", 4);
     newBand.save();
-    Venue newVenue = new Venue("The Music Place", 4);
-    newVenue.save();
     String url = String.format("http://localhost:4567/band/%d", newBand.getId());
     goTo(url);
-    click("checkbox", withText("The Music Place"));
-    submit("#addVenue");
-  
+    submit("#deleteBand");
+    assertThat(pageSource()).doesNotContain("The Music Band").contains("List of bands");
   }
 
 
