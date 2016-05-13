@@ -33,6 +33,7 @@ public class App {
       Map <String, Object> model = new HashMap<String, Object>();
       int band_id = Integer.parseInt(request.params(":band_id"));
       model.put("band", Band.find(band_id));
+      model.put("bandVenues", Band.find(band_id).getVenues());
       model.put("template", "templates/band.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

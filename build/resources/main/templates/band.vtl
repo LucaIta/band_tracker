@@ -1,2 +1,8 @@
 <h1>$band.getName()</h1>
 <h2>Number of members: $band.getBandSize()</h2>
+
+#foreach($venue in $bandVenues)
+  $venue.getName()
+#end
+
+<h2>Select</h2>

@@ -56,6 +56,18 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("The Music Band").contains("4");
   }
 
+  @Test
+  public void venueAssociatedWithBandIsDisplayed() {
+    Band newBand = new Band("The Music Band", 4);
+    newBand.save();
+    Venue newVenue = new Venue("The Music Place", 4);
+    newVenue.save();
+    newBand.addVenue(newVenue);
+    String url = String.format("http://localhost:4567/band/%d", newBand.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("The Music Place");
+  }
+
   // I need to vheck that I have an error message for when the form is blank
 
 
