@@ -38,4 +38,11 @@ public class VenueTest {
     Band testBand = new Band("The Music Band", 3);
     assertTrue(testVenue.bandSizeChecker(testBand));
   }
+
+  @Test
+  public void Venue_returnFalseIfNameIsEmpty() {
+    Venue testVenue = new Venue("", 4);
+    assertEquals(false, testVenue.save());
+  }
+
 }

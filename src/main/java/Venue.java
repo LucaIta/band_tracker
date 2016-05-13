@@ -19,10 +19,22 @@ public class Venue {
     return id;
   }
 
-  public void save() {
-    try (Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO venues (name) VALUES (:name)";
-      this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).executeUpdate().getKey();
+  // public void save() {
+  //   try (Connection con = DB.sql2o.open()) {
+  //     String sql = "INSERT INTO venues (name) VALUES (:name)";
+  //     this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).executeUpdate().getKey();
+  //   }
+  // }
+
+  public boolean save() {
+    if (this.name.equals("")) {
+      return false;
+    } else {
+      try (Connection con = DB.sql2o.open()) {
+        String sql = "INSERT INTO venues (name) VALUES (:name)";
+        this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).executeUpdate().getKey();
+        return true;
+      }
     }
   }
 
@@ -49,5 +61,7 @@ public class Venue {
       return this.max_band_size >= band.getBandSize();
     }
   }
+
+  // do i delete from joint table?
 
 }
