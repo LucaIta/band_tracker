@@ -15,6 +15,7 @@ public class App {
     get("/", (request, response) ->  {
       Map <String, Object> model = new HashMap<String, Object>();
       model.put("bands", Band.all());
+      model.put("venues", Venue.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -35,6 +36,15 @@ public class App {
       model.put("template", "templates/band.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    post("/venues", (request, response) ->  {
+      String venueName = request.queryParams("venueName");
+      int maxBandSize = Integer.parseInt(request.queryParams("maxBandSize"));
+      Venue newVenue = new Venue(venueName, maxBandSize);
+      newVenue.save();
+      response.redirect("/");
+      return null;
+    });
 
     // post("/checkboxes", (request, response) ->  { // this works, I think I was using Band.vtl
     //   Map <String, Object> model = new HashMap<String, Object>();

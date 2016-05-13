@@ -30,12 +30,21 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void bandGetCreated() {
+  public void bandGetsCreated() {
     goTo("http://localhost:4567/");
     fill("#bandName").with("The Music Band");
     fill("#amountOfMembers").with("4");
     submit("#addBand");
     assertThat(pageSource()).contains("The Music Band");
+  }
+
+  @Test
+  public void venueGetsCreated() {
+    goTo("http://localhost:4567/");
+    fill("#venueName").with("The Music Place");
+    fill("#maxBandSize").with("4");
+    submit("#addVenue");
+    assertThat(pageSource()).contains("The Music Place");
   }
 
   @Test
@@ -46,6 +55,10 @@ public class AppTest extends FluentTest {
     goTo(url);
     assertThat(pageSource()).contains("The Music Band").contains("4");
   }
+
+  // I need to vheck that I have an error message for when the form is blank
+
+
 
 
 }

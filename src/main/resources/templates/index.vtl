@@ -1,21 +1,52 @@
 <h1>Band Tracker</h1>
 
-<h1>List of bands</h1>
+<div class="row">
+  <div class="col-xs-6">
 
-#foreach ($band in $bands)
-  <p><a href="/band/$band.getId()">$band.getName()</a></p>
-#end
+  <h1>List of bands</h1>
+
+  #foreach ($band in $bands)
+    <p><a href="/band/$band.getId()">$band.getName()</a></p>
+  #end
 
 
-<form action="/bands" method="post">
+  <form action="/bands" method="post">
+
+    <label for="bandName">Band name</label>
+    <input id="bandName" name="bandName" type="text">
+
+    <label for="amountOfMembers">Amount of members</label>
+    <input id="amountOfMembers" name="amountOfMembers" type="number">
+
+    <button type="submit" id="addBand" class="btn btn-success">Add a band</button>
+
+  </form>
+
+ </div>
+</div>
 
 
-  <label for="bandName">Band name</label>
-  <input id="bandName" name="bandName" type="text">
+<div class="row">
+  <div class="col-xs-6">
 
-  <label for="amountOfMembers">Amount of members</label>
-  <input id="amountOfMembers" name="amountOfMembers" type="number">
+  <h1>List of venues</h1>
 
-  <button type="submit" id="addBand" class="btn btn-success">Add a band</button>
+  #foreach ($venue in $venues)
+    <p>$venue.getName()</p>
+  #end
 
-</form>
+
+  <form action="/venues" method="post">
+
+    <label for="venueName">Venue name</label>
+    <input id="venueName" name="venueName" type="text">
+
+    <label for="maxBandSize">Max number of band members that can play in the venue</label>
+    <input id="maxBandSize" name="maxBandSize" type="number">
+
+    <button type="submit" id="addVenue" class="btn btn-success">Add a venue</button>
+
+  </form>
+
+ </div>
+</div>
