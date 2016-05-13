@@ -45,4 +45,15 @@ public class VenueTest {
     assertEquals(false, testVenue.save());
   }
 
+  @Test
+  public void Band_deletesBandCorrectly() {
+    Band testBand = new Band("The Music Band", 4);
+    testBand.save();
+    Venue testVenue = new Venue("The Music Place", 4);
+    testVenue.save();
+    testBand.addVenue(testVenue);
+    testVenue.delete();
+    assertEquals(0, testBand.getVenues().size());
+  }
+
 }
