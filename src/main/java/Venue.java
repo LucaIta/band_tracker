@@ -15,6 +15,10 @@ public class Venue {
     return name;
   }
 
+  public int maxBandSize() {
+    return max_band_size;
+  }
+
   public int getId() {
     return id;
   }
