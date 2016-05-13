@@ -28,6 +28,15 @@ public class App {
       return null;
     });
 
+    get("/band/:band_id", (request, response) ->  {
+      Map <String, Object> model = new HashMap<String, Object>();
+      int band_id = Integer.parseInt(request.params(":band_id"));
+
+      model.put("bands", Band.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     // post("/checkboxes", (request, response) ->  { // this works, I think I was using Band.vtl
     //   Map <String, Object> model = new HashMap<String, Object>();
     //   model.put("template", "templates/checkboxes.vtl");

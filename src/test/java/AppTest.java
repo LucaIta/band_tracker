@@ -23,17 +23,29 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
-  @Test public void rootTest() {
+  @Test
+  public void rootTest() {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("Band Tracker");
   }
 
-  @Test public void bandGetCreated() {
+  @Test
+  public void bandGetCreated() {
     goTo("http://localhost:4567/");
     fill("#bandName").with("The Music Band");
     fill("#amountOfMembers").with("4");
     submit("#addBand");
     assertThat(pageSource()).contains("The Music Band");
   }
+
+  @Test
+  public void bandDetailPageIsDisplayed() {
+    Band newBand = new Band("The Music Band", 4);
+    newBand.save();
+    String url = String.format("/band/%d", newBand.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("The Music Band").contains("4");
+  }
+
 
 }

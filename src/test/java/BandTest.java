@@ -70,6 +70,13 @@ public class BandTest {
     assertEquals(false, testBand.save());
   }
 
+  @Test
+  public void Band_findBandCorrectly() {
+    Band testBand = new Band("The Music Band", 4);
+    testBand.save();
+    assertTrue(testBand.equals(Band.find(testBand.getId())));
+  }
+
 
 
 

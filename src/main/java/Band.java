@@ -48,6 +48,14 @@ public class Band {
     }
   }
 
+  public static Band find(int band_id) {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM bands WHERE id = :band_id";
+      Band newBand = con.createQuery(sql).addParameter("band_id", band_id).executeAndFetchFirst(Band.class);
+      return newBand;
+    }
+  }
+
   public static List<Band> all() {
     try (Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM bands";
