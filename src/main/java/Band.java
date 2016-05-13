@@ -14,8 +14,6 @@ public class Band {
     return id;
   }
 
-  // get name
-  // get id
   // all
 
   // add

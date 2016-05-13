@@ -10,9 +10,15 @@ public class BandTest {
   }
 
   @Test
-  public void Category_getCategoryName() {
+  public void and_returnBandName() {
     Band testBand = new Band("The Music Band");
     assertEquals("The Music Band", testBand.getName());
+  }
+
+  @Test
+  public void Band_returnBandId() {
+    Band testBand = new Band("The Music Band");
+    assertEquals(0, testBand.getId());
   }
 
 }
