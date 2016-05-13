@@ -33,9 +33,9 @@ public class VenueTest {
   }
 
   @Test
-  public void Venue_checksCOrrectlyIfABandCanPlayHere() {
+  public void Venue_checksCorrectlyIfABandCanPlayHere() {
     Venue testVenue = new Venue("The Music Place", 4);
     Band testBand = new Band("The Music Band", 3);
-    assertTrue(testVenue.sizeChecker(testBand));
+    assertTrue(testVenue.bandSizeChecker(testBand));
   }
 }

@@ -1,5 +1,6 @@
 import java.util.List;
 import org.sql2o.*;
+import java.util.ArrayList;
 
 public class Band {
   private String name;
@@ -61,6 +62,35 @@ public class Band {
   public int getBandSize() {
     return band_size;
   }
+
+  public void addVenue(Venue venue) {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO bands_venues (band_id, venue_id) VALUES (:band_id ,:venue_id)";
+      con.createQuery(sql).addParameter("band_id", this.id).addParameter("venue_id", venue.getId()).executeUpdate();
+    }
+  }
+
+  public List<Venue> getVenues() {
+    try (Connection con = DB.sql2o.open()) {
+      String venue_id_query = "SELECT venue_id FROM bands_venues WHERE band_id = :band_id";
+      List<Integer> venues_id = con.createQuery(venue_id_query).addParameter("band_id", this.id).executeAndFetch(Integer.class);
+
+      List<Venue> venues = new ArrayList<Venue>();
+      String venues_query = "SELECT * FROM venues WHERE id = :venue_id";
+
+      for (Integer venue_id : venues_id) {
+        Venue venue = con.createQuery(venues_query).addParameter("venue_id", venue_id).executeAndFetchFirst(Venue.class);
+        venues.add(venue);
+      }
+
+      return venues;
+
+    }
+  }
+
+
+
+  // I need to check if the size is correct before saving
 
 
   // should check for empty entries

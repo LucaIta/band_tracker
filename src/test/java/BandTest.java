@@ -50,6 +50,15 @@ public class BandTest {
     assertEquals(0, Band.all().size());
   }
 
+  @Test
+  public void Band_venueIsCorrectlyAdded() {
+    Band testBand = new Band("The Music Band", 4);
+    testBand.save();
+    Venue testVenue = new Venue("The Music Place", 4);
+    testVenue.save();
+    testBand.addVenue(testVenue);
+    assertTrue(testVenue.equals(testBand.getVenues().get(0)));
+  }
 
 
 

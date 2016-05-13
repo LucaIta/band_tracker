@@ -22,9 +22,7 @@ public class Venue {
   public void save() {
     try (Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO venues (name) VALUES (:name)";
-      // this.id = (int)
-      con.createQuery(sql, true).addParameter("name", this.name).executeUpdate();
-      // .getKey(); do I need to retrieve the id?
+      this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).executeUpdate().getKey();
     }
   }
 
@@ -46,7 +44,7 @@ public class Venue {
     }
   }
 
-  public boolean sizeChecker(Band band) {
+  public boolean bandSizeChecker(Band band) {
     try (Connection con = DB.sql2o.open()) {
       return this.max_band_size >= band.getBandSize();
     }
