@@ -14,11 +14,21 @@ public class App {
 
     get("/", (request, response) ->  {
       Map <String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/band.vtl");
+      model.put("bands", Band.all());
+      model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // post("/checkboxes", (request, response) ->  { // this works
+    post("/bands", (request, response) ->  {
+      String bandName= request.queryParams("bandName");
+      int amountOfMembers= Integer.parseInt(request.queryParams("amountOfMembers"));
+      Band newBand = new Band(bandName,amountOfMembers);
+      newBand.save();
+      response.redirect("/");
+      return null;
+    });
+
+    // post("/checkboxes", (request, response) ->  { // this works, I think I was using Band.vtl
     //   Map <String, Object> model = new HashMap<String, Object>();
     //   model.put("template", "templates/checkboxes.vtl");
     //   model.put("checkbox1",request.queryParams("checkbox1"));
@@ -26,12 +36,12 @@ public class App {
     //   return new ModelAndView(model, layout);
     // }, new VelocityTemplateEngine());
 
-    post("/checkboxes", (request, response) ->  {
-      Map <String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/checkboxes.vtl");
-      model.put("checkboxesValues", request.queryParamsValues("checkbox"));
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    // post("/checkboxes", (request, response) ->  { // this works better
+    //   Map <String, Object> model = new HashMap<String, Object>();
+    //   model.put("template", "templates/checkboxes.vtl");
+    //   model.put("checkboxesValues", request.queryParamsValues("checkbox"));
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
 
   }
 }
