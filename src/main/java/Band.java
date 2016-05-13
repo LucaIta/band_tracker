@@ -18,14 +18,21 @@ public class Band {
   }
 
   public void save() {
-    try (Connection con = DB.sql2o.open()){
+    try (Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO bands (name) VALUES (:name)";
       this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).executeUpdate().getKey();
     }
   }
 
+  public void update(String name) {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE bands SET name = :name WHERE id = :id";
+      con.createQuery(sql).addParameter("name", name).addParameter("id", this.id).executeUpdate();
+    }
+  }
+
   public static List<Band> all() {
-    try (Connection con = DB.sql2o.open()){
+    try (Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM bands";
       List<Band> bands = con.createQuery(sql).executeAndFetch(Band.class);
       return bands;
@@ -42,7 +49,6 @@ public class Band {
     }
   }
 
-  // all
   // should check for empty entries
   // add
   // update

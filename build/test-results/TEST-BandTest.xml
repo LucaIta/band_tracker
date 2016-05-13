@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BandTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2016-05-13T15:51:34" hostname="epicodus-92.local" time="0.132">
+<testsuite name="BandTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-05-13T16:00:35" hostname="epicodus-92.local" time="0.144">
   <properties/>
-  <testcase name="Band_savesCorrectly" classname="BandTest" time="0.116"/>
-  <testcase name="Band_returnBandId" classname="BandTest" time="0.005"/>
-  <testcase name="and_returnBandName" classname="BandTest" time="0.005"/>
+  <testcase name="Band_updatesNameCorrectly" classname="BandTest" time="0.114"/>
+  <testcase name="Band_savesCorrectly" classname="BandTest" time="0.015"/>
+  <testcase name="Band_returnBandId" classname="BandTest" time="0.004"/>
+  <testcase name="and_returnBandName" classname="BandTest" time="0.004"/>
   <testcase name="Band_InstantiateCorrectly" classname="BandTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

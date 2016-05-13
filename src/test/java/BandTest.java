@@ -34,6 +34,14 @@ public class BandTest {
     assertTrue(testBand.equals(Band.all().get(0)));
   }
 
+  @Test
+  public void Band_updatesNameCorrectly() {
+    Band testBand = new Band("The Music Band");
+    testBand.save();
+    testBand.update("Sex Bob-omb");
+    assertEquals("Sex Bob-omb", Band.all().get(0).getName());
+  }
+
 
 
 
