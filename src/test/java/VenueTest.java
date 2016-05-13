@@ -25,4 +25,10 @@ public class VenueTest {
     assertEquals(0, testVenue.getId());
   }
 
+  @Test
+  public void Venue_getSavedCorrectly() {
+    Venue testVenue = new Venue("The Music Place");
+    testVenue.save();
+    assertEquals(testVenue, testVenue.all().get(0));
+  }
 }

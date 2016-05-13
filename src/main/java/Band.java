@@ -57,6 +57,5 @@ public class Band {
   }
 
   // should check for empty entries
-  // delete
 
 }
