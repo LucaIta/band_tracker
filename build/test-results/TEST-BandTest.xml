@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BandTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-05-13T03:45:58" hostname="oems-MacBook-Pro.local" time="0.007">
+<testsuite name="BandTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-05-13T04:09:51" hostname="oems-MacBook-Pro.local" time="0.677">
   <properties/>
-  <testcase name="Band_returnBandId" classname="BandTest" time="0.005"/>
-  <testcase name="and_returnBandName" classname="BandTest" time="0.001"/>
-  <testcase name="Band_InstantiateCorrectly" classname="BandTest" time="0.0"/>
+  <testcase name="Band_returnBandId" classname="BandTest" time="0.644"/>
+  <testcase name="and_returnBandName" classname="BandTest" time="0.018"/>
+  <testcase name="Band_InstantiateCorrectly" classname="BandTest" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
