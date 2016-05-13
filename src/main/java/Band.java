@@ -31,6 +31,13 @@ public class Band {
     }
   }
 
+  public void delete() {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM bands WHERE id = :id";
+      con.createQuery(sql).addParameter("id", this.id).executeUpdate();
+    }
+  }
+
   public static List<Band> all() {
     try (Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM bands";
@@ -50,8 +57,6 @@ public class Band {
   }
 
   // should check for empty entries
-  // add
-  // update
   // delete
 
 }

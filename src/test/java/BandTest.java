@@ -42,6 +42,15 @@ public class BandTest {
     assertEquals("Sex Bob-omb", Band.all().get(0).getName());
   }
 
+  @Test
+  public void Band_deletesBandCorrectly() {
+    Band testBand = new Band("The Music Band");
+    testBand.save();
+    testBand.delete();
+    assertEquals(0, Band.all().size());
+
+  }
+
 
 
 
