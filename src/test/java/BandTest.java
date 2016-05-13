@@ -11,32 +11,32 @@ public class BandTest {
 
   @Test
   public void Band_InstantiateCorrectly() {
-    Band testBand = new Band("The Music Band");
+    Band testBand = new Band("The Music Band", 4);
     assertTrue(testBand instanceof Band);
   }
 
   @Test
   public void and_returnBandName() {
-    Band testBand = new Band("The Music Band");
+    Band testBand = new Band("The Music Band", 4);
     assertEquals("The Music Band", testBand.getName());
   }
 
   @Test
   public void Band_returnBandId() {
-    Band testBand = new Band("The Music Band");
+    Band testBand = new Band("The Music Band", 4);
     assertEquals(0, testBand.getId());
   }
 
   @Test
   public void Band_savesCorrectly() {
-    Band testBand = new Band("The Music Band");
+    Band testBand = new Band("The Music Band", 4);
     testBand.save();
     assertTrue(testBand.equals(Band.all().get(0)));
   }
 
   @Test
   public void Band_updatesNameCorrectly() {
-    Band testBand = new Band("The Music Band");
+    Band testBand = new Band("The Music Band", 4);
     testBand.save();
     testBand.update("Sex Bob-omb");
     assertEquals("Sex Bob-omb", Band.all().get(0).getName());
@@ -44,11 +44,10 @@ public class BandTest {
 
   @Test
   public void Band_deletesBandCorrectly() {
-    Band testBand = new Band("The Music Band");
+    Band testBand = new Band("The Music Band", 4);
     testBand.save();
     testBand.delete();
     assertEquals(0, Band.all().size());
-
   }
 
 

@@ -9,25 +9,25 @@ public class VenueTest {
 
   @Test
   public void Venue_InstantiateCorrectly() {
-    Venue testVenue = new Venue("The Music Place");
+    Venue testVenue = new Venue("The Music Place", 4);
     assertTrue(testVenue instanceof Venue);
   }
 
   @Test
   public void and_returnVenueName() {
-    Venue testVenue = new Venue("The Music Place");
+    Venue testVenue = new Venue("The Music Place", 4);
     assertEquals("The Music Place", testVenue.getName());
   }
 
   @Test
   public void Venue_returnVenueId() {
-    Venue testVenue = new Venue("The Music Place");
+    Venue testVenue = new Venue("The Music Place", 4);
     assertEquals(0, testVenue.getId());
   }
 
   @Test
   public void Venue_getSavedCorrectly() {
-    Venue testVenue = new Venue("The Music Place");
+    Venue testVenue = new Venue("The Music Place", 4);
     testVenue.save();
     assertEquals(testVenue, testVenue.all().get(0));
   }

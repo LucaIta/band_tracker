@@ -4,8 +4,9 @@ import org.sql2o.*;
 public class Venue {
   private String name;
   private int id;
+  private int max_band_size;
 
-  public Venue(String name){
+  public Venue(String name, int band_size) {
     this.name = name;
   }
 
@@ -42,13 +43,6 @@ public class Venue {
       List<Venue> venues = con.createQuery(sql).executeAndFetch(Venue.class);
       return venues;
     }
-
   }
-
-  // all
-
-  // add
-  // update
-  // delete
 
 }
