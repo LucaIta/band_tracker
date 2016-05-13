@@ -60,6 +60,11 @@ public class BandTest {
     assertTrue(testVenue.equals(testBand.getVenues().get(0)));
   }
 
+  @Test
+  public void Band_returnFalseIfNameIsEmpty() {
+    Band testBand = new Band("", 4);
+    assertEquals(false, testBand.save());
+  }
 
 
 

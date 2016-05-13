@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BandTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-05-13T17:43:14" hostname="epicodus-92.local" time="0.497">
+<testsuite name="BandTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2016-05-13T17:46:43" hostname="epicodus-92.local" time="0.205">
   <properties/>
-  <testcase name="Band_updatesNameCorrectly" classname="BandTest" time="0.116"/>
-  <testcase name="Band_savesCorrectly" classname="BandTest" time="0.016"/>
+  <testcase name="Band_updatesNameCorrectly" classname="BandTest" time="0.118"/>
+  <testcase name="Band_savesCorrectly" classname="BandTest" time="0.015"/>
   <testcase name="Band_returnBandId" classname="BandTest" time="0.005"/>
-  <testcase name="Band_venueIsCorrectlyAdded" classname="BandTest" time="0.327"/>
-  <testcase name="and_returnBandName" classname="BandTest" time="0.006"/>
-  <testcase name="Band_InstantiateCorrectly" classname="BandTest" time="0.005"/>
-  <testcase name="Band_deletesBandCorrectly" classname="BandTest" time="0.021"/>
+  <testcase name="Band_venueIsCorrectlyAdded" classname="BandTest" time="0.026"/>
+  <testcase name="and_returnBandName" classname="BandTest" time="0.005"/>
+  <testcase name="Band_returnFalseIfNameIsEmpty" classname="BandTest" time="0.006"/>
+  <testcase name="Band_InstantiateCorrectly" classname="BandTest" time="0.01"/>
+  <testcase name="Band_deletesBandCorrectly" classname="BandTest" time="0.019"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -20,10 +20,15 @@ public class Band {
     return id;
   }
 
-  public void save() {
-    try (Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO bands (name, band_size) VALUES (:name, :band_size)";
-      this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).addParameter("band_size", this.band_size).executeUpdate().getKey();
+  public boolean save() {
+    if (this.name.equals("")) {
+      return false;
+    } else {
+      try (Connection con = DB.sql2o.open()) {
+        String sql = "INSERT INTO bands (name, band_size) VALUES (:name, :band_size)";
+        this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).addParameter("band_size", this.band_size).executeUpdate().getKey();
+        return true;
+      }
     }
   }
 
