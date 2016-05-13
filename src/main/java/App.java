@@ -31,9 +31,8 @@ public class App {
     get("/band/:band_id", (request, response) ->  {
       Map <String, Object> model = new HashMap<String, Object>();
       int band_id = Integer.parseInt(request.params(":band_id"));
-
-      model.put("bands", Band.all());
-      model.put("template", "templates/index.vtl");
+      model.put("band", Band.find(band_id));
+      model.put("template", "templates/band.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

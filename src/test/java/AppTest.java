@@ -42,7 +42,7 @@ public class AppTest extends FluentTest {
   public void bandDetailPageIsDisplayed() {
     Band newBand = new Band("The Music Band", 4);
     newBand.save();
-    String url = String.format("/band/%d", newBand.getId());
+    String url = String.format("http://localhost:4567/band/%d", newBand.getId());
     goTo(url);
     assertThat(pageSource()).contains("The Music Band").contains("4");
   }
