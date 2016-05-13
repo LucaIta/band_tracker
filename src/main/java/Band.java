@@ -58,6 +58,11 @@ public class Band {
     }
   }
 
+  public int getBandSize() {
+    return band_size;
+  }
+
+
   // should check for empty entries
 
 }

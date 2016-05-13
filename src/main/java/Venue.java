@@ -6,8 +6,9 @@ public class Venue {
   private int id;
   private int max_band_size;
 
-  public Venue(String name, int band_size) {
+  public Venue(String name, int max_band_size) {
     this.name = name;
+    this.max_band_size = max_band_size;
   }
 
   public String getName() {
@@ -42,6 +43,12 @@ public class Venue {
       String sql = "SELECT * FROM venues";
       List<Venue> venues = con.createQuery(sql).executeAndFetch(Venue.class);
       return venues;
+    }
+  }
+
+  public boolean sizeChecker(Band band) {
+    try (Connection con = DB.sql2o.open()) {
+      return this.max_band_size >= band.getBandSize();
     }
   }
 
