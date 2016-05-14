@@ -30,4 +30,22 @@
   <button id="deleteBand" type="submit" name="deleteBand" class="btn btn-danger">Delete band</button>
 </form>
 
-<p><a href="/">Homepage</a></p>
+<br>
+<br>
+<br>
+<p>Select what to edit and insert the new value</p>
+
+
+<form action="/band/$band.getId()/edit" method="post">
+  <select name="editForm" class="form-control">
+    <option value="name">Edit band Name</option>
+    <option value="band_size">Edit band members number</option>
+  </select>
+
+  <label for="newValue">New value</label>
+  <input id="newValue" name="newValue" type="text">
+
+  <button id="editBand" type="submit" name="editBand" class="btn btn-danger">Edit band</button>
+</form>
+
+<p><a href="/">Go back to homepage</a></p>

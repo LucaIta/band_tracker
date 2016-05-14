@@ -32,12 +32,24 @@ public class Band {
     }
   }
 
-  public void update(String name) {
+  // public void update(String name) { // this works
+  //   try (Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE bands SET name = :name WHERE id = :id";
+  //     con.createQuery(sql).addParameter("name", name).addParameter("id", this.id).executeUpdate();
+  //   }
+  // }
+
+  public void update(String parameterToEdit,String newValue) {
     try (Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE bands SET name = :name WHERE id = :id";
-      con.createQuery(sql).addParameter("name", name).addParameter("id", this.id).executeUpdate();
+      String sql = "UPDATE bands SET " + parameterToEdit + " = :newValue WHERE id = :id";
+      if (parameterToEdit.equals("band_size")) {
+        con.createQuery(sql).addParameter("newValue", Integer.parseInt(newValue)).addParameter("id", this.id).executeUpdate();
+      } else {
+        con.createQuery(sql).addParameter("newValue", newValue).addParameter("id", this.id).executeUpdate();
+      }
     }
   }
+
 
   public void delete() {
     try (Connection con = DB.sql2o.open()) {

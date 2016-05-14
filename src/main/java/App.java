@@ -69,6 +69,17 @@ public class App {
       return null;
     });
 
+
+    post("/band/:band_id/edit", (request, response) ->  {
+      String parameterToEdit = request.queryParams("editForm");
+      Band newBand = Band.find(Integer.parseInt(request.params(":band_id")));
+      String newValue = request.queryParams("newValue");
+      newBand.update(parameterToEdit,newValue);
+      String url = String.format("/band/%d", newBand.getId());
+      response.redirect(url);
+      return null;
+    });
+
     // post("/checkboxes", (request, response) ->  { // this works, I think I was using Band.vtl
     //   Map <String, Object> model = new HashMap<String, Object>();
     //   model.put("template", "templates/checkboxes.vtl");

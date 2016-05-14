@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BandTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-05-13T23:22:25" hostname="epicodus-92.local" time="0.129">
+<testsuite name="BandTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-05-14T15:59:45" hostname="oems-MacBook-Pro.local" time="0.343">
   <properties/>
-  <testcase name="Band_updatesNameCorrectly" classname="BandTest" time="0.018"/>
-  <testcase name="Band_savesCorrectly" classname="BandTest" time="0.014"/>
-  <testcase name="Band_returnBandId" classname="BandTest" time="0.004"/>
-  <testcase name="Band_findBandCorrectly" classname="BandTest" time="0.015"/>
-  <testcase name="Band_venueIsCorrectlyAdded" classname="BandTest" time="0.029"/>
-  <testcase name="and_returnBandName" classname="BandTest" time="0.004"/>
-  <testcase name="Band_returnFalseIfNameIsEmpty" classname="BandTest" time="0.005"/>
-  <testcase name="Band_InstantiateCorrectly" classname="BandTest" time="0.004"/>
-  <testcase name="Band_deletesBandCorrectly" classname="BandTest" time="0.034"/>
+  <testcase name="Band_updatesNameCorrectly" classname="BandTest" time="0.042"/>
+  <testcase name="Band_savesCorrectly" classname="BandTest" time="0.031"/>
+  <testcase name="Band_returnBandId" classname="BandTest" time="0.013"/>
+  <testcase name="Band_findBandCorrectly" classname="BandTest" time="0.033"/>
+  <testcase name="Band_venueIsCorrectlyAdded" classname="BandTest" time="0.073"/>
+  <testcase name="and_returnBandName" classname="BandTest" time="0.011"/>
+  <testcase name="Band_returnFalseIfNameIsEmpty" classname="BandTest" time="0.014"/>
+  <testcase name="Band_InstantiateCorrectly" classname="BandTest" time="0.011"/>
+  <testcase name="Band_deletesBandCorrectly" classname="BandTest" time="0.101"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
