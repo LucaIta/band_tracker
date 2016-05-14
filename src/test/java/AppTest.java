@@ -81,13 +81,29 @@ public class AppTest extends FluentTest {
   // }
 
   @Test
-  public void bandsGetCancelled() {
+  public void bandGetDeleted() {
     Band newBand = new Band("The Music Band", 4);
     newBand.save();
     String url = String.format("http://localhost:4567/band/%d", newBand.getId());
     goTo(url);
     submit("#deleteBand");
     assertThat(pageSource()).doesNotContain("The Music Band").contains("List of bands");
+  }
+
+  @Test
+  public void bandGetUpdated() {
+    Band newBand = new Band("The Music Band", 4);
+    newBand.save();
+    String url = String.format("http://localhost:4567/band/%d", newBand.getId());
+    goTo(url);
+    click("option", withText("Edit band Name"));
+    fill("#newValue").with("Sex Bob-omb");
+    submit("#editBand");
+    assertThat(pageSource()).contains("Sex Bob-omb");
+    click("option", withText("Edit band members number"));
+    fill("#newValue").with("6");
+    submit("#editBand");
+    assertThat(pageSource()).contains("Number of members: 6");
   }
 
 
