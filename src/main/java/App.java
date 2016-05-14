@@ -43,6 +43,7 @@ public class App {
     post("/venues", (request, response) ->  {
       String venueName = request.queryParams("venueName");
       int maxBandSize = Integer.parseInt(request.queryParams("maxBandSize"));
+      System.out.println(maxBandSize);
       Venue newVenue = new Venue(venueName, maxBandSize);
       newVenue.save();
       response.redirect("/");
@@ -55,7 +56,9 @@ public class App {
       Band newBand = Band.find(band_id);
       for (String venue_id : venues_id) {
           Venue newVenue = Venue.find(Integer.parseInt(venue_id));
-          newBand.addVenue(newVenue);
+          if(newVenue.bandSizeChecker(newBand)){
+            newBand.addVenue(newVenue);
+          }
         }
       String url = String.format("/band/%d", band_id);
       response.redirect(url);

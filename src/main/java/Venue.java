@@ -28,8 +28,8 @@ public class Venue {
       return false;
     } else {
       try (Connection con = DB.sql2o.open()) {
-        String sql = "INSERT INTO venues (name) VALUES (:name)";
-        this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).executeUpdate().getKey();
+        String sql = "INSERT INTO venues (name, max_band_size) VALUES (:name, :max_band_size)";
+        this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).addParameter("max_band_size", this.max_band_size).executeUpdate().getKey();
         return true;
       }
     }
