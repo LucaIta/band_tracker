@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="VenueTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-05-14T18:30:10" hostname="oems-MacBook-Pro.local" time="0.129">
+<testsuite name="VenueTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-05-15T01:03:05" hostname="oems-MacBook-Pro.local" time="0.122">
   <properties/>
-  <testcase name="Venue_returnFalseIfNameIsEmpty" classname="VenueTest" time="0.009"/>
-  <testcase name="Venue_checksCorrectlyIfABandCanPlayHere" classname="VenueTest" time="0.017"/>
-  <testcase name="and_returnVenueName" classname="VenueTest" time="0.029"/>
-  <testcase name="Venue_getSavedCorrectly" classname="VenueTest" time="0.036"/>
+  <testcase name="Venue_returnFalseIfNameIsEmpty" classname="VenueTest" time="0.011"/>
+  <testcase name="Venue_checksCorrectlyIfABandCanPlayHere" classname="VenueTest" time="0.029"/>
+  <testcase name="and_returnVenueName" classname="VenueTest" time="0.017"/>
+  <testcase name="Venue_getSavedCorrectly" classname="VenueTest" time="0.034"/>
   <testcase name="Venue_returnVenueId" classname="VenueTest" time="0.013"/>
   <testcase name="Venue_InstantiateCorrectly" classname="VenueTest" time="0.011"/>
   <system-out><![CDATA[]]></system-out>

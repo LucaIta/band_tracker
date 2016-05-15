@@ -22,13 +22,16 @@ public class App {
     }, new VelocityTemplateEngine());
 
     post("/bands", (request, response) ->  {
-      String bandName= request.queryParams("bandName");
-      int amountOfMembers= Integer.parseInt(request.queryParams("amountOfMembers"));
-      Band newBand = new Band(bandName,amountOfMembers);
-      newBand.save();
-      response.redirect("/");
-      return null;
+      if(!(request.queryParams("amountOfMembers").equals("") || request.queryParams("bandName").equals(""))){
+        String bandName= request.queryParams("bandName");
+        int amountOfMembers = Integer.parseInt(request.queryParams("amountOfMembers"));
+        Band newBand = new Band(bandName,amountOfMembers);
+        newBand.save();
+      }
+    response.redirect("/");
+    return null;
     });
+
 
     get("/band/:band_id", (request, response) ->  {
       Map <String, Object> model = new HashMap<String, Object>();
