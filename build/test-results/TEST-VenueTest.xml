@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="VenueTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-05-15T02:03:31" hostname="oems-MacBook-Pro.local" time="0.205">
+<testsuite name="VenueTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-05-15T02:05:54" hostname="oems-MacBook-Pro.local" time="0.228">
   <properties/>
-  <testcase name="Venue_returnFalseIfNameIsEmpty" classname="VenueTest" time="0.02"/>
-  <testcase name="Venue_bandsAreCorrectlyReturned" classname="VenueTest" time="0.075"/>
-  <testcase name="Venue_checksCorrectlyIfABandCanPlayHere" classname="VenueTest" time="0.021"/>
-  <testcase name="and_returnVenueName" classname="VenueTest" time="0.017"/>
+  <testcase name="Venue_returnFalseIfNameIsEmpty" classname="VenueTest" time="0.01"/>
+  <testcase name="Venue_bandsAreCorrectlyReturned" classname="VenueTest" time="0.109"/>
+  <testcase name="Venue_checksCorrectlyIfABandCanPlayHere" classname="VenueTest" time="0.018"/>
+  <testcase name="and_returnVenueName" classname="VenueTest" time="0.016"/>
   <testcase name="Venue_getSavedCorrectly" classname="VenueTest" time="0.04"/>
-  <testcase name="Venue_returnVenueId" classname="VenueTest" time="0.012"/>
-  <testcase name="Venue_InstantiateCorrectly" classname="VenueTest" time="0.011"/>
+  <testcase name="Venue_returnVenueId" classname="VenueTest" time="0.013"/>
+  <testcase name="Venue_InstantiateCorrectly" classname="VenueTest" time="0.012"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

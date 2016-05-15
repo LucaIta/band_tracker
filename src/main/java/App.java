@@ -99,20 +99,5 @@ public class App {
       return null;
     });
 
-    // post("/checkboxes", (request, response) ->  { // this works, I think I was using Band.vtl
-    //   Map <String, Object> model = new HashMap<String, Object>();
-    //   model.put("template", "templates/checkboxes.vtl");
-    //   model.put("checkbox1",request.queryParams("checkbox1"));
-    //   model.put("checkbox2",request.queryParams("checkbox2"));
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-
-    // post("/checkboxes", (request, response) ->  { // this works better
-    //   Map <String, Object> model = new HashMap<String, Object>();
-    //   model.put("template", "templates/checkboxes.vtl");
-    //   model.put("checkboxesValues", request.queryParamsValues("checkbox"));
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-
   }
 }

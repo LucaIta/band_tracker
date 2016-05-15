@@ -45,22 +45,13 @@ public class Venue {
     }
   }
 
-  // public void delete() {
-  //   try (Connection con = DB.sql2o.open()) {
-  //     String deleteFromVenues = "DELETE FROM venues WHERE id = :id";
-  //     String deleteFromJointTable = "DELETE FROM bands_venues WHERE venue_id = :id";
-  //     con.createQuery(deleteFromVenues).addParameter("id", this.id).executeUpdate();
-  //     con.createQuery(deleteFromJointTable).addParameter("id", this.id).executeUpdate();
-  //   }
-  // }
-
   @Override
   public boolean equals(Object otherVenue) {
     if (!(otherVenue instanceof Venue)) {
       return false;
     } else {
       Venue newVenue = (Venue) otherVenue;
-      return this.name.equals(newVenue.getName()); // should I add the ID comparison?
+      return this.name.equals(newVenue.getName());
     }
   }
 

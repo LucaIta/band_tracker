@@ -106,9 +106,4 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("The Music Band");
   }
 
-  // I need to vheck that I have an error message for when the form is blank
-
-
-
-
 }

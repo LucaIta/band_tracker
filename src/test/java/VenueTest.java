@@ -55,15 +55,4 @@ public class VenueTest {
     assertTrue(testBand.equals(testVenue.getBands().get(0)));
   }
 
-  // @Test
-  // public void Venue_deletesBandCorrectly() {
-  //   Band testBand = new Band("The Music Band", 4);
-  //   testBand.save();
-  //   Venue testVenue = new Venue("The Music Place", 4);
-  //   testVenue.save();
-  //   testBand.addVenue(testVenue);
-  //   testVenue.delete();
-  //   assertEquals(0, testBand.getVenues().size());
-  // }
-
 }

@@ -77,10 +77,4 @@ public class BandTest {
     assertTrue(testBand.equals(Band.find(testBand.getId())));
   }
 
-
-
-
 }
-
-
-// i need to override

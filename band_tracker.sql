@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.1
--- Dumped by pg_dump version 9.5.1
+-- Dumped from database version 9.5.2
+-- Dumped by pg_dump version 9.5.2
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -34,7 +34,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: bands; Type: TABLE; Schema: public; Owner: Guest
+-- Name: bands; Type: TABLE; Schema: public; Owner: oem
 --
 
 CREATE TABLE bands (
@@ -44,10 +44,10 @@ CREATE TABLE bands (
 );
 
 
-ALTER TABLE bands OWNER TO "Guest";
+ALTER TABLE bands OWNER TO oem;
 
 --
--- Name: bands_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
+-- Name: bands_id_seq; Type: SEQUENCE; Schema: public; Owner: oem
 --
 
 CREATE SEQUENCE bands_id_seq
@@ -58,17 +58,17 @@ CREATE SEQUENCE bands_id_seq
     CACHE 1;
 
 
-ALTER TABLE bands_id_seq OWNER TO "Guest";
+ALTER TABLE bands_id_seq OWNER TO oem;
 
 --
--- Name: bands_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
+-- Name: bands_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: oem
 --
 
 ALTER SEQUENCE bands_id_seq OWNED BY bands.id;
 
 
 --
--- Name: bands_venues; Type: TABLE; Schema: public; Owner: Guest
+-- Name: bands_venues; Type: TABLE; Schema: public; Owner: oem
 --
 
 CREATE TABLE bands_venues (
@@ -78,10 +78,10 @@ CREATE TABLE bands_venues (
 );
 
 
-ALTER TABLE bands_venues OWNER TO "Guest";
+ALTER TABLE bands_venues OWNER TO oem;
 
 --
--- Name: bands_venues_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
+-- Name: bands_venues_id_seq; Type: SEQUENCE; Schema: public; Owner: oem
 --
 
 CREATE SEQUENCE bands_venues_id_seq
@@ -92,17 +92,17 @@ CREATE SEQUENCE bands_venues_id_seq
     CACHE 1;
 
 
-ALTER TABLE bands_venues_id_seq OWNER TO "Guest";
+ALTER TABLE bands_venues_id_seq OWNER TO oem;
 
 --
--- Name: bands_venues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
+-- Name: bands_venues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: oem
 --
 
 ALTER SEQUENCE bands_venues_id_seq OWNED BY bands_venues.id;
 
 
 --
--- Name: venues; Type: TABLE; Schema: public; Owner: Guest
+-- Name: venues; Type: TABLE; Schema: public; Owner: oem
 --
 
 CREATE TABLE venues (
@@ -112,10 +112,10 @@ CREATE TABLE venues (
 );
 
 
-ALTER TABLE venues OWNER TO "Guest";
+ALTER TABLE venues OWNER TO oem;
 
 --
--- Name: venues_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
+-- Name: venues_id_seq; Type: SEQUENCE; Schema: public; Owner: oem
 --
 
 CREATE SEQUENCE venues_id_seq
@@ -126,91 +126,83 @@ CREATE SEQUENCE venues_id_seq
     CACHE 1;
 
 
-ALTER TABLE venues_id_seq OWNER TO "Guest";
+ALTER TABLE venues_id_seq OWNER TO oem;
 
 --
--- Name: venues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
+-- Name: venues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: oem
 --
 
 ALTER SEQUENCE venues_id_seq OWNED BY venues.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
+-- Name: id; Type: DEFAULT; Schema: public; Owner: oem
 --
 
 ALTER TABLE ONLY bands ALTER COLUMN id SET DEFAULT nextval('bands_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
+-- Name: id; Type: DEFAULT; Schema: public; Owner: oem
 --
 
 ALTER TABLE ONLY bands_venues ALTER COLUMN id SET DEFAULT nextval('bands_venues_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
+-- Name: id; Type: DEFAULT; Schema: public; Owner: oem
 --
 
 ALTER TABLE ONLY venues ALTER COLUMN id SET DEFAULT nextval('venues_id_seq'::regclass);
 
 
 --
--- Data for Name: bands; Type: TABLE DATA; Schema: public; Owner: Guest
+-- Data for Name: bands; Type: TABLE DATA; Schema: public; Owner: oem
 --
 
 COPY bands (id, name, band_size) FROM stdin;
-1	band1	4
 \.
 
 
 --
--- Name: bands_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
+-- Name: bands_id_seq; Type: SEQUENCE SET; Schema: public; Owner: oem
 --
 
-SELECT pg_catalog.setval('bands_id_seq', 8, true);
+SELECT pg_catalog.setval('bands_id_seq', 11, true);
 
 
 --
--- Data for Name: bands_venues; Type: TABLE DATA; Schema: public; Owner: Guest
+-- Data for Name: bands_venues; Type: TABLE DATA; Schema: public; Owner: oem
 --
 
 COPY bands_venues (id, band_id, venue_id) FROM stdin;
-1	1	1
 \.
 
 
 --
--- Name: bands_venues_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
+-- Name: bands_venues_id_seq; Type: SEQUENCE SET; Schema: public; Owner: oem
 --
 
-SELECT pg_catalog.setval('bands_venues_id_seq', 14, true);
+SELECT pg_catalog.setval('bands_venues_id_seq', 19, true);
 
 
 --
--- Data for Name: venues; Type: TABLE DATA; Schema: public; Owner: Guest
+-- Data for Name: venues; Type: TABLE DATA; Schema: public; Owner: oem
 --
 
 COPY venues (id, name, max_band_size) FROM stdin;
-1	venue1	4
-2	venue2	4
-3	venue3	4
-4	Test Venue	\N
-5	Venue yea	\N
-6	Venue maybe	\N
 \.
 
 
 --
--- Name: venues_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
+-- Name: venues_id_seq; Type: SEQUENCE SET; Schema: public; Owner: oem
 --
 
-SELECT pg_catalog.setval('venues_id_seq', 6, true);
+SELECT pg_catalog.setval('venues_id_seq', 14, true);
 
 
 --
--- Name: bands_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Name: bands_pkey; Type: CONSTRAINT; Schema: public; Owner: oem
 --
 
 ALTER TABLE ONLY bands
@@ -218,7 +210,7 @@ ALTER TABLE ONLY bands
 
 
 --
--- Name: bands_venues_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Name: bands_venues_pkey; Type: CONSTRAINT; Schema: public; Owner: oem
 --
 
 ALTER TABLE ONLY bands_venues
@@ -226,7 +218,7 @@ ALTER TABLE ONLY bands_venues
 
 
 --
--- Name: venues_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Name: venues_pkey; Type: CONSTRAINT; Schema: public; Owner: oem
 --
 
 ALTER TABLE ONLY venues
@@ -234,12 +226,12 @@ ALTER TABLE ONLY venues
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: epicodus
+-- Name: public; Type: ACL; Schema: -; Owner: oem
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM epicodus;
-GRANT ALL ON SCHEMA public TO epicodus;
+REVOKE ALL ON SCHEMA public FROM oem;
+GRANT ALL ON SCHEMA public TO oem;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 

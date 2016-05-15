@@ -32,13 +32,6 @@ public class Band {
     }
   }
 
-  // public void update(String name) { // this works
-  //   try (Connection con = DB.sql2o.open()) {
-  //     String sql = "UPDATE bands SET name = :name WHERE id = :id";
-  //     con.createQuery(sql).addParameter("name", name).addParameter("id", this.id).executeUpdate();
-  //   }
-  // }
-
   public void update(String parameterToEdit,String newValue) {
     try (Connection con = DB.sql2o.open()) {
       String sql = "UPDATE bands SET " + parameterToEdit + " = :newValue WHERE id = :id";
@@ -116,12 +109,4 @@ public class Band {
 
     }
   }
-
-
-
-  // I need to check if the size is correct before saving
-
-
-  // should check for empty entries
-
 }
