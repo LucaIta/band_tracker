@@ -34,7 +34,7 @@
   <h1>List of venues</h1>
 
   #foreach ($venue in $venues)
-    <p>$venue.getName() - max number of band members: $venue.maxBandSize()</p>
+    <p><a href="/venue/$venue.getId()">$venue.getName() - max number of band members: $venue.maxBandSize()</a></p>
   #end
 
 

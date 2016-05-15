@@ -68,18 +68,6 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("The Music Place");
   }
 
-  // @Test
-  // public void formToAssociateVenuesWorks() {
-  //   Band newBand = new Band("The Music Band", 4);
-  //   newBand.save();
-  //   Venue newVenue = new Venue("The Music Place", 4);
-  //   newVenue.save();
-  //   String url = String.format("http://localhost:4567/band/%d", newBand.getId());
-  //   goTo(url);
-  //   click("checkbox", withText("The Music Place"));
-  //   submit("#addVenue");
-  // }
-
   @Test
   public void bandGetDeleted() {
     Band newBand = new Band("The Music Band", 4);
@@ -106,6 +94,17 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Number of members: 6");
   }
 
+  @Test
+  public void bandIsDisplayedInVenuesPage() {
+    Band newBand = new Band("The Music Band", 4);
+    newBand.save();
+    Venue newVenue = new Venue("The Music Place", 4);
+    newVenue.save();
+    newBand.addVenue(newVenue);
+    String url = String.format("http://localhost:4567/venue/%d", newVenue.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("The Music Band");
+  }
 
   // I need to vheck that I have an error message for when the form is blank
 

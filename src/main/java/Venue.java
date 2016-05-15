@@ -1,5 +1,7 @@
 import java.util.List;
 import org.sql2o.*;
+import java.util.ArrayList;
+
 
 public class Venue {
   private String name;
@@ -76,6 +78,22 @@ public class Venue {
     }
   }
 
-  // do i delete from joint table?
+  public List<Band> getBands() {
+    try (Connection con = DB.sql2o.open()) {
+      String band_id_query = "SELECT band_id FROM bands_venues WHERE venue_id = :venue_id";
+      List<Integer> bands_id = con.createQuery(band_id_query).addParameter("venue_id", this.id).executeAndFetch(Integer.class);
+
+      List<Band> bands = new ArrayList<Band>();
+      String bands_query = "SELECT * FROM bands WHERE id = :band_id";
+
+      for (Integer band_id : bands_id) {
+        Band band = con.createQuery(bands_query).addParameter("band_id", band_id).executeAndFetchFirst(Band.class);
+        bands.add(band);
+      }
+
+      return bands;
+
+    }
+  }
 
 }

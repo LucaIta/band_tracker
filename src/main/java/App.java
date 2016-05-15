@@ -43,6 +43,17 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/venue/:venue_id", (request, response) ->  {
+      Map <String, Object> model = new HashMap<String, Object>();
+      int venue_id = Integer.parseInt(request.params(":venue_id"));
+      model.put("venue", Venue.find(venue_id));
+      model.put("venuesBand", Venue.find(venue_id).getBands());
+      model.put("template", "templates/venue.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
+
     post("/venues", (request, response) ->  {
       if(!(request.queryParams("venueName").equals("") || request.queryParams("maxBandSize").equals(""))){
         String venueName = request.queryParams("venueName");
@@ -60,11 +71,11 @@ public class App {
       int band_id = Integer.parseInt(request.params(":band_id"));
       Band newBand = Band.find(band_id);
       for (String venue_id : venues_id) {
-          Venue newVenue = Venue.find(Integer.parseInt(venue_id));
-          if(newVenue.bandSizeChecker(newBand)){
-            newBand.addVenue(newVenue);
-          }
+        Venue newVenue = Venue.find(Integer.parseInt(venue_id));
+        if(newVenue.bandSizeChecker(newBand)){
+          newBand.addVenue(newVenue);
         }
+      }
       String url = String.format("/band/%d", band_id);
       response.redirect(url);
       return null;
