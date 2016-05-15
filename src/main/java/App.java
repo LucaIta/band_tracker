@@ -44,11 +44,13 @@ public class App {
     }, new VelocityTemplateEngine());
 
     post("/venues", (request, response) ->  {
-      String venueName = request.queryParams("venueName");
-      int maxBandSize = Integer.parseInt(request.queryParams("maxBandSize"));
-      System.out.println(maxBandSize);
-      Venue newVenue = new Venue(venueName, maxBandSize);
-      newVenue.save();
+      if(!(request.queryParams("venueName").equals("") || request.queryParams("maxBandSize").equals(""))){
+        String venueName = request.queryParams("venueName");
+        int maxBandSize = Integer.parseInt(request.queryParams("maxBandSize"));
+        System.out.println(maxBandSize);
+        Venue newVenue = new Venue(venueName, maxBandSize);
+        newVenue.save();
+      }
       response.redirect("/");
       return null;
     });
