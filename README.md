@@ -20,6 +20,7 @@ Bands can be delited and their names can be modified._
 * _\c band_tracker;
 * _CREATE TABLE bands (id serial PRIMARY KEY, name varchar, band_size int);
 * _CREATE TABLE venues (id serial PRIMARY KEY, name varchar, max_band_size int);
+* _CREATE TABLE bands_venues (id serial PRIMARY KEY, band_id int, venue_id int);
 * _CREATE DATABASE band_tracker_test WITH TEMPLATE band_tracker;
 
 * _open your browser at the page http://localhost:4567/
