@@ -1,1 +1,1 @@
-web: ./build/install/todo/bin/band_tracker
+web: ./build/install/band_tracker/bin/band_tracker
