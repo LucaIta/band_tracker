@@ -1,1 +1,1 @@
-web: ./build/install/bandtracker/bin/bandtracker
+web: ./build/install/band_tracker/bin/band_tracker
