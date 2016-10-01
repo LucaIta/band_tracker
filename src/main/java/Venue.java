@@ -1,8 +1,10 @@
 import java.util.List;
 import org.sql2o.*;
-import com.heroku.sdk.jdbc.DatabaseUrl;
 
 import java.util.ArrayList;
+
+import com.heroku.sdk.jdbc.DatabaseUrl;  // heroku lib
+import java.sql.*; // heroku lib
 
 
 public class Venue {
