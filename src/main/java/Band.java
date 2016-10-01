@@ -28,7 +28,7 @@ public class Band {
     if (this.name.equals("")) {
       return false;
     } else {
-      try (Connection con = DB.sql2o.open()) {
+      try (Connection con = DatabaseUrl.extract(true).getConnection()) {
         String sql = "INSERT INTO bands (name, band_size) VALUES (:name, :band_size)";
         this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).addParameter("band_size", this.band_size).executeUpdate().getKey();
         return true;
@@ -37,7 +37,7 @@ public class Band {
   }
 
   public void update(String parameterToEdit,String newValue) {
-    try (Connection con = DB.sql2o.open()) {
+    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
       String sql = "UPDATE bands SET " + parameterToEdit + " = :newValue WHERE id = :id";
       if (parameterToEdit.equals("band_size")) {
         con.createQuery(sql).addParameter("newValue", Integer.parseInt(newValue)).addParameter("id", this.id).executeUpdate();
@@ -49,7 +49,7 @@ public class Band {
 
 
   public void delete() {
-    try (Connection con = DB.sql2o.open()) {
+    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
       String deleteFromBands = "DELETE FROM bands WHERE id = :id";
       String deleteFromJointTable = "DELETE FROM bands_venues WHERE band_id = :id";
       con.createQuery(deleteFromBands).addParameter("id", this.id).executeUpdate();
@@ -58,7 +58,7 @@ public class Band {
   }
 
   public static Band find(int band_id) {
-    try (Connection con = DB.sql2o.open()) {
+    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
       String sql = "SELECT * FROM bands WHERE id = :band_id";
       Band newBand = con.createQuery(sql).addParameter("band_id", band_id).executeAndFetchFirst(Band.class);
       return newBand;
@@ -89,7 +89,7 @@ public class Band {
 
   public void addVenue(Venue venue) {
     if (!(this.getVenues().contains(venue))){
-      try (Connection con = DB.sql2o.open()) {
+      try (Connection con = DatabaseUrl.extract(true).getConnection()) {
         String sql = "INSERT INTO bands_venues (band_id, venue_id) VALUES (:band_id ,:venue_id)";
         con.createQuery(sql).addParameter("band_id", this.id).addParameter("venue_id", venue.getId()).executeUpdate();
       }
@@ -97,7 +97,7 @@ public class Band {
   }
 
   public List<Venue> getVenues() {
-    try (Connection con = DB.sql2o.open()) {
+    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
       String venue_id_query = "SELECT venue_id FROM bands_venues WHERE band_id = :band_id";
       List<Integer> venues_id = con.createQuery(venue_id_query).addParameter("band_id", this.id).executeAndFetch(Integer.class);
 
