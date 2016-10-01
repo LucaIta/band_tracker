@@ -62,7 +62,7 @@ public class Band {
   }
 
   public static List<Band> all() {
-    try (Connection con = DB.sql2o.open()) {
+    try (Connection con = DB.sql2o.getConnection()) {
       String sql = "SELECT * FROM bands";
       List<Band> bands = con.createQuery(sql).executeAndFetch(Band.class);
       return bands;
