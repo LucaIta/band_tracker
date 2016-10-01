@@ -5,6 +5,8 @@ import static spark.Spark.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import org.postgresql.*; // heroku
+
 
 public class App {
 
@@ -38,8 +40,8 @@ public class App {
         Band newBand = new Band(bandName,amountOfMembers);
         newBand.save();
       }
-    response.redirect("/");
-    return null;
+      response.redirect("/");
+      return null;
     });
 
 
