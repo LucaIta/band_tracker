@@ -1,5 +1,5 @@
 import java.util.List;
-import org.sql2o.*;
+// import org.sql2o.*;
 import java.util.ArrayList;
 
 import com.heroku.sdk.jdbc.DatabaseUrl; // heroku lib
