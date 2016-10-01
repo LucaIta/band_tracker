@@ -1,10 +1,6 @@
 import java.util.List;
-// import org.sql2o.*;
-
+import org.sql2o.*;
 import java.util.ArrayList;
-
-import com.heroku.sdk.jdbc.DatabaseUrl;  // heroku lib
-import java.sql.*; // heroku lib
 
 
 public class Venue {
@@ -33,7 +29,7 @@ public class Venue {
     if (this.name.equals("")) {
       return false;
     } else {
-      try (Connection con = DatabaseUrl.extract(true).getConnection()) {
+      try (Connection con = DB.sql2o.open()) {
         String sql = "INSERT INTO venues (name, max_band_size) VALUES (:name, :max_band_size)";
         this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).addParameter("max_band_size", this.max_band_size).executeUpdate().getKey();
         return true;
@@ -42,7 +38,7 @@ public class Venue {
   }
 
   public static Venue find(int venue_id) {
-    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
+    try (Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM venues WHERE id = :venue_id";
       Venue newVenue = con.createQuery(sql).addParameter("venue_id", venue_id).executeAndFetchFirst(Venue.class);
       return newVenue;
@@ -60,7 +56,7 @@ public class Venue {
   }
 
   public static List<Venue> all() {
-    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
+    try (Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM venues";
       List<Venue> venues = con.createQuery(sql).executeAndFetch(Venue.class);
       return venues;
@@ -68,13 +64,13 @@ public class Venue {
   }
 
   public boolean bandSizeChecker(Band band) {
-    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
+    try (Connection con = DB.sql2o.open()) {
       return this.max_band_size >= band.getBandSize();
     }
   }
 
   public List<Band> getBands() {
-    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
+    try (Connection con = DB.sql2o.open()) {
       String band_id_query = "SELECT band_id FROM bands_venues WHERE venue_id = :venue_id";
       List<Integer> bands_id = con.createQuery(band_id_query).addParameter("venue_id", this.id).executeAndFetch(Integer.class);
 
