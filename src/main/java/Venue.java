@@ -56,7 +56,7 @@ public class Venue {
   }
 
   public static List<Venue> all() {
-    try (Connection con = DB.sql2o.getConnection()) {
+    try (Connection con = DatabaseUrl.extract(true).getConnection()) {
       String sql = "SELECT * FROM venues";
       List<Venue> venues = con.createQuery(sql).executeAndFetch(Venue.class);
       return venues;
