@@ -10,6 +10,8 @@ _It allow the user to create a database of bands and venues.
 The user can associate venues with band to keep track of the venues in which the bands have played.
 Bands can be delited and their names can be modified._
 
+_Try it live here: http://obscure-savannah-43254.herokuapp.com/_
+
 ## Setup/Installation Requirements
 
 * _clone the following directory: https://github.com/LucaIta/band_tracker.git
